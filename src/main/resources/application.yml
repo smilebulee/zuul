@@ -1,0 +1,30 @@
+spring:
+  application.name: api-gateway
+server:
+  port : 8762
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+zuul:
+  routes:
+    emp-api:
+      path: **
+     
+      
+#hystrix:		# circuit breaker
+#  command:
+#    member-api:
+#      execution:
+#        isolation:
+#          thread:
+#            # Ribbon의 각 timeout보다 커야 기대하는대로 동작함
+#            timeoutInMilliseconds: 5000 
+
+#member-api:
+#  ribbon:
+#    NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
+#    ConnectTimeout: 1000
+#    ReadTimeout: 3000
+#    MaxTotalHttpConnections: 500
+#    MaxConnectionsPerHost: 100
